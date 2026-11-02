@@ -6,7 +6,7 @@
                  top_level["reasoning_effort"] = "none"
 -                extra_body["think"] = False
 +                # Mistral rejects extra fields (422 extra_forbidden on think)
-+                if not str(model or "").lower().startswith(("mistral", "magistral", "devstral", "codestral", "ministral", "pixtral")):
++                if not str(ctx.get("model") or "").lower().startswith(("mistral", "magistral", "devstral", "codestral", "ministral", "pixtral")):
 +                    extra_body["think"] = False
              elif _effort:
                  # Clamp the internal ladder onto the widest OpenAI-compatible

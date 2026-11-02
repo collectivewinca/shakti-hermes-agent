@@ -1,1 +1,1 @@
-On ve-shakti after `hermes update` or `git pull`: `cd /root/.hermes/hermes-agent && git apply /path/to/this/repo/patches/mistral-think-skip/mistral-think-skip.diff` (target: `plugins/model-providers/custom/__init__.py`). See NOTES.md.
+On ve-shakti after `hermes update` or `git pull`: `cd /root/.hermes/hermes-agent && git apply /path/to/this/repo/patches/mistral-think-skip/mistral-think-skip.diff` (target: `plugins/model-providers/custom/__init__.py`). Use `ctx.get("model")` — bare `model` is a NameError (`**ctx`). See NOTES.md.

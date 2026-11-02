@@ -12,6 +12,8 @@ which made Hermes crons fall back to DeepSeek.
 Only add `think: false` when the model name does NOT start with (case-insensitive):
 mistral, magistral, devstral, codestral, ministral, pixtral.
 
+Read the name from `ctx.get("model")`. `build_api_kwargs_extras` takes `**ctx`; bare `model` is a NameError (hit on ve-shakti after the first live patch).
+
 `reasoning_effort: "none"` is still sent and Mistral accepts it.
 
 ## Status
