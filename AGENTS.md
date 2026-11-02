@@ -320,6 +320,9 @@ in config.yaml (or `HERMES_BACKGROUND_NOTIFICATIONS` env var):
 
 ## Known Pitfalls
 
+### Mistral `think` omit (live host)
+This fork has no `plugins/model-providers/`. On a Nous-style checkout (ve-shakti: `/root/.hermes/hermes-agent`), reapply `patches/mistral-think-skip/` after `hermes update` / `git pull`. The skip must use `ctx.get("model")` (`**ctx`); bare `model` is a NameError. See that folder.
+
 ### DO NOT use `simple_term_menu` for interactive menus
 Rendering bugs in tmux/iTerm2 — ghosting on scroll. Use `curses` (stdlib) instead. See `hermes_cli/tools_config.py` for the pattern.
 
