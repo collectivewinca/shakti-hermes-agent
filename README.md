@@ -62,6 +62,8 @@ hermes doctor       # Diagnose any issues
 
 📖 **[Full documentation →](https://hermes-agent.nousresearch.com/docs/)**
 
+Ops: Mistral rejects `extra_body.think`; reapply `patches/mistral-think-skip/` on ve-shakti after `hermes update` / `git pull` until that skip is upstreamed. See [CHANGELOG.md](CHANGELOG.md).
+
 ---
 
 ## Documentation

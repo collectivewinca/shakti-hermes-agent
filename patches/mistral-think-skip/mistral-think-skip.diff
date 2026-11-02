@@ -1,0 +1,13 @@
+--- a/plugins/model-providers/custom/__init__.py	2026-11-02 16:06:14.819969141 +0000
++++ b/plugins/model-providers/custom/__init__.py	2026-11-02 16:06:14.835969141 +0000
+@@ -62,7 +62,9 @@
+                 # reasoning (#25758). Endpoints that recognize neither simply
+                 # ignore them.
+                 top_level["reasoning_effort"] = "none"
+-                extra_body["think"] = False
++                # Mistral rejects extra fields (422 extra_forbidden on think)
++                if not str(model or "").lower().startswith(("mistral", "magistral", "devstral", "codestral", "ministral", "pixtral")):
++                    extra_body["think"] = False
+             elif _effort:
+                 # Clamp the internal ladder onto the widest OpenAI-compatible
+                 # wire vocabulary (shared policy in agent.reasoning_effort) —
